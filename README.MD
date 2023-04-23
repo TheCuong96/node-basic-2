@@ -13,3 +13,4 @@
 "@babel/node": "7.15.4",
 "@babel/preset-env": "7.15.6", `thằng này để cho phép ta dùng es6 được trong project này`
 "nodemon": "2.0.12" `thằng này để server auto re-render mỗi khi ta update hay save lại code`
+ "dotenv": "10.0.0" `để ta có thể sử dụng file .env trong nodejs`
