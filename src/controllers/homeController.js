@@ -31,9 +31,31 @@ let deleteUser = async (req, res) => {
     return res.redirect("/");
 };
 
+let getEditPage = async (req, res) => {
+    // lấy data cần edit từ server bằng id
+    let id = req.params.id;
+    let [user] = await pool.execute("Select * from users where id = ?", [id]);
+    console.log("user", user[0]);
+    return res.render("update.ejs", { dataUser: user[0] });
+};
+
+let postUpdateUser = async (req, res) => {
+    // gửi data lên server để cập nhật lại data
+    let { firstName, lastName, email, address, id } = req.body;
+
+    await pool.execute(
+        "update users set firstName= ?, lastName = ? , email = ? , address= ? where id = ?",
+        [firstName, lastName, email, address, id]
+    );
+
+    return res.redirect("/");
+};
+
 module.exports = {
     getHomepage,
     getDetailPage,
     createNewUser,
     deleteUser,
+    getEditPage,
+    postUpdateUser,
 };

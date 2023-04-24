@@ -3,6 +3,9 @@ import homeController from "../controllers/homeController";
 let router = express.Router();
 
 const initWebRoute = (app) => {
+    router.get("/edit-user/:id", homeController.getEditPage);
+    router.post("/update-user", homeController.postUpdateUser);
+
     router.post("/delete-user", homeController.deleteUser);
 
     router.get("/", homeController.getHomepage);

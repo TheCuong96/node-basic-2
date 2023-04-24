@@ -46,7 +46,12 @@
                                         >Detail</a
                                     >
                                 </button>
-                                <button type="button">Edit</button>
+                                <form
+                                    action="/edit-user/<%= dataUser[i].id %>"
+                                    method="GET"
+                                >
+                                    <button type="submit">Edit</button>
+                                </form>
                                 <form action="/delete-user" method="POST">
                                     <input
                                         type="text"
